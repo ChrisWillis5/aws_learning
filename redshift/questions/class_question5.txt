@@ -1,0 +1,2 @@
+1. Create a sql file (.sql extension). Put a create table statement.
+2. Use a python script to call this module to create table.
