@@ -8,6 +8,12 @@ For each product build record using python script.
 'galaxy10','galaxy11','galaxy12','galaxy13','watch320','watch340'
 'Nk320',''Nk400',''Nk500'
 
+File example:
+iphon11,220
+iphone12,250
+iphone13,290
+
+
 create a table in redshift also.-- table name product_cost
 
 2. Load data into s3 in separate folder (order data must be created earlier in class project 3).
