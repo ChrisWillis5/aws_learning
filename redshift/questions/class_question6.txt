@@ -19,4 +19,24 @@ create a table in redshift also.-- table name product_cost
 2. Load data into s3 in separate folder (order data must be created earlier in class project 3).
 3. Use copy command  to load data into redshift by.
 4  create a view by joining order and product_cost.
-5. Unload data from view into s3 bucket (this has to be separate bucket then created earlier)
+
+
+5. Create a bucket using boto3 and then list the buckets (from the metadata). make sure the bucket exists else fail.
+6. Unload data from view into s3 bucket (this has to be separate bucket then created earlier) buckets/transformation/vw_name/    (this has ot be a csv file with header)
+
+
+
+
+
+## Hints
+sql questin
+
+import boto3
+
+client = boto3.client('s3')
+response = client.list_buckets()
+print(response)
+response = client.create_bucket(
+Bucket='chris123')
+
+session = boto3.Session(profile_name='dev_acct')
