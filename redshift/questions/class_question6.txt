@@ -25,10 +25,10 @@ create a table in redshift also.-- table name product_cost
 6. Unload data from view into s3 bucket (this has to be separate bucket then created earlier) buckets/transformation/vw_name/    (this has ot be a csv file with header)
 
 
-7. Create a new view by taking all the records where you have profit. Profit is sales amount -price. So add all the fields from order table
+7. Create a new view by taking all the records where you have profit. Profit is sales amount -manufacturingcost. So add all the fields from order table
 and cost from product_cost.
-8. Create col as profit_group the values are [ if profit is more 10% the "Bumper profit", it is 0 to 10% then "Marginal profit"
-if it is -5% to 0% then " Loss making" else "Bumper Loss"
+8. Create col as profit_group the values are [ if profit percenatge is more 10% the "Bumper profit", it is 0 to 10% then "Marginal profit"
+if it is -5% to 0% then "Loss making" else "Bumper Loss"
 9. Unload the view into a s3 file.
 10. Create another view to show total profit by each brand_name,year-mth cd (ex:202201,202203). Do a rank by the total profit (desc) and
 amount of product sold (Asc)
