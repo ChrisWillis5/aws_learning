@@ -2,4 +2,5 @@
 
 
 
-  1. Order table and
+  1. Order table and product_cost create table statements should be in sql file.
+  2. Use python module to call the sql and execute to create tables.
