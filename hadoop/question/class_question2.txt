@@ -9,7 +9,7 @@ tran_date : ['2022-01-01' to '2022-03-10' ]
 
 Generate records for every day with the date range given [ each day generate 1000 to 10000 records]
 
-2. Load each file into s3. [ each with folder as 20220101,20220102]
+2. Load each file into s3. [ each with folder as 20220101,20220102] [ use boto3 to push to s3]
 3.Create table in Redshift.
 4. Copy data to redshift  [append mode]
 
