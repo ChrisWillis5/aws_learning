@@ -15,3 +15,4 @@ Generate records for every day with the date range given [ each day generate 100
 
 
 
+1. Unload query sum(tran)amt by country cd to parquet file in s3.
