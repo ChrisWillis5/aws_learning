@@ -1,0 +1,4 @@
+hadoop fs -ls /user/
+hdfs dfs -mkdir -p /user/data/src_customer/
+hdfs dfs -ls /user/data/src_customer/
+hdfs dfs -ls s3a://ppg-test-bucket/drug/
