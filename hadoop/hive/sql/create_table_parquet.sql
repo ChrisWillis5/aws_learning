@@ -22,8 +22,8 @@ tblproperties ("skip.header.line.count"="1")
 
 aws s3 cp s3://aws-train-nov-de/cards_ingest/account_src/cards_account_ingest_2022-01-02.csv s3://aws-train-nov-de-data/data/src_customer/customer_details/
 
-set hive.exec.dynamic.partition=true;
-set hive.exec.dynamic.partition.mode=nonstrict;
+--set hive.exec.dynamic.partition=true;
+--set hive.exec.dynamic.partition.mode=nonstrict;
 
 create table if not exists customer_details_parquet
 (
@@ -36,6 +36,7 @@ acct_hldr_first_name varchar(20),
 acct_hldr_last_name varchar(20),
 dataset_date varchar(50))
 stored as parquet
+location "s3://aws-train-nov-de-data/data/src_customer/customer_details_parquet/"
 ;
 
 insert into customer_details_parquet select * from customer_details;
