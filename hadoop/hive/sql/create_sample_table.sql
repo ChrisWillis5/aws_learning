@@ -1,13 +1,15 @@
 
-ssh -i sanjeeb_ec2.pem  hadoop@ec2-184-73-63-62.compute-1.amazonaws.com
+ssh -i sanjeeb_ec2.pem  hadoop@ec2-54-198-19-18.compute-1.amazonaws.com
 
 type : hive to open hive shell
 or
---beeline -u jdbc:hive2://ec2-184-73-63-62.compute-1.amazonaws.com:10000/default
+--beeline -u jdbc:hive2://ec2-54-198-19-18.compute-1.amazonaws.com:10000/default
 
 show databases;
 
 --hdfs dfs -chown -R hive /user/data
+
+-- This has to be doe ina diferent shell
 hdfs dfs -ls /user/
 hdfs dfs -mkdir -p /user/data/src_customer     >> will hdfs directory
 
@@ -41,6 +43,12 @@ location "/user/data/src_customer/customer_details/"
 tblproperties ("skip.header.line.count"="1")
 ;
 
+
+stored as parquet;
+
+insert into table 1111 as select * from table000;
+
 hdfs dfs -cp s3://aws-train-nov-de/cards_ingest/account_src/cards_account_ingest_2022-01-02.csv /user/data/src_customer/customer_details/
 
+set hive.cli.print.header=true;
 select * from customer_details limit 5;
