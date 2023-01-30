@@ -22,8 +22,9 @@ tblproperties ("skip.header.line.count"="1")
 
 aws s3 cp s3://aws-train-nov-de/cards_ingest/account_src/cards_account_ingest_2022-01-02.csv s3://aws-train-nov-de-data/data/src_customer/customer_details/
 
---set hive.exec.dynamic.partition=true;
---set hive.exec.dynamic.partition.mode=nonstrict;
+
+
+
 
 create table if not exists customer_details_parquet
 (

@@ -1,9 +1,11 @@
 
-ssh -i sanjeeb_ec2.pem  hadoop@ec2-54-198-19-18.compute-1.amazonaws.com
+ssh -i sanjeeb_ec2.pem  hadoop@ec2-44-201-173-164.compute-1.amazonaws.com
 
 type : hive to open hive shell
 or
---beeline -u jdbc:hive2://ec2-54-198-19-18.compute-1.amazonaws.com:10000/default
+export AWS_PROFILE=dev_acct
+--beeline -u jdbc:hive2://ec2-44-201-173-164.compute-1.amazonaws.com:10000/default
+aws emr terminate-clusters --cluster-ids j-3CPJ1GS4TEC85
 
 show databases;
 

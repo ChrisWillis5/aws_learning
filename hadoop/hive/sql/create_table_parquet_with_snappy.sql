@@ -15,4 +15,6 @@ stored as parquet
 TBLPROPERTIES ("parquet.compression"="SNAPPY");
 ;
 
+DESCRIBE FORMATTED customer_details_parquet_snappy ;
+
 insert into customer_details_parquet_snappy select * from customer_details_parquet;
