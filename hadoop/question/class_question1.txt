@@ -1,5 +1,8 @@
 1.Create table :tran_fact
 tran_id int, cust_id varchar(20),tran_date date,tran_ammount decimal(10,2), tran_type varchar(1)
+database name: src_customer
+tablename: src_transaction
+partition : 2023-02-01, 2023-02-02,2023-02-03 :ex
 
 tran_id : unique id of 6 character
 cust_id : CA+ 4 integer
@@ -26,14 +29,16 @@ database_name varchar(20),
 table_name varchar(50),
 partition_key varchar(30),
 rec_count int(10),
-load_date date,
+load_date date,    [[ when are you loading current_time ]]
 execution_key varchar(100)  >>> Partition col
 
-execution_key is (database_name + "-"+table_name+"-"+partition_key)
+execution_key is (database_name + "-"+table_name+"-"+partition_key)  [src_customer-tablename-2023-02-01,src_customer-tablename-2023-02-02]
 
 
 2. After each load into tran_fact run the query to load data into table_states
 query is : get the count from tran_fact an load into table_states
+
+insert into table     [[ select from cource table   ]]]]
 
 
 
