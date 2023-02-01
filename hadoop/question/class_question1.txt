@@ -19,7 +19,7 @@ sate_cd :varchar(2)
 2. Create static partition as dataset_date as varchar(10). Make sure tran_date < dataset_date-1
 3. Add 7 partitions dataset_date
 
-Dataquality check:
+Data stats process:
 1. create a table as table_states:
 cols:
 database_name varchar(20),
@@ -29,7 +29,7 @@ rec_count int(10),
 load_date date,
 execution_key varchar(100)  >>> Partition col
 
-execution_key is (database_name + "-"+table_name+"-"+partition_key
+execution_key is (database_name + "-"+table_name+"-"+partition_key)
 
 
 2. After each load into tran_fact run the query to load data into table_states
