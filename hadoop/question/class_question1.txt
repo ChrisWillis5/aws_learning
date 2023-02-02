@@ -41,9 +41,22 @@ query is : get the count from tran_fact an load into table_states
 insert into table     [[ select from cource table   ]]]]
 
 
+3. Create transaction_fact same as tran_fact in schema cards_dw.
 
+cols:
+tablename: transaction_fact
+partition : 2023-02-01, 2023-02-02,2023-02-03 :ex
 
+tran_id :
+cust_id :
+tran_date:
+tran_ammount:
+tran_type :[
+load_time: current time
+dataset_date ,sate_cd : partition col
 
+Build a sql which will read one day data from tran_fact and load into transaction_fact
+4. Add parameter into sql script which will be passed from command line.
 
 1. Total unique customer per day.
 2. Total number of unique customer till date
@@ -51,9 +64,3 @@ insert into table     [[ select from cource table   ]]]]
 4. Find out duplicate transaction in total.
 5. show the transaction which has debit but never credit before.
 
-hive -f filename.hql
-beeline -f file.hql --hivevar HDFSDIR=/tmp/folder
-USE myhivedb;
--- a comment
-LOAD DATA INPATH '${HDFSDIR}/browser.tsv' OVERWRITE INTO TABLE browser;
--- other queries
