@@ -1,18 +1,14 @@
-1.Create table :tran_fact
-tran_id int, cust_id varchar(20),tran_ammount decimal(10,2), tran_type varchar(1), tran_country_cd varchar(3),tran_date date
-tran_id : random id (ex : FX_20220201_123456,TD_20220201_224452  (Concat [FX/TD] with 12 digit number)
-cust_id : cust_12345 (concat cust+ 4 digit number)
-tran_ammount : $ ammount ( 3 dgit to 10 digit number)
-tran_type : C/D (Random Value)
-country_cd : ['USA','CAN','IND','AFG','CHN','JPN','KON','PAL']
-tran_date : ['2022-01-01' to '2022-03-10' ]
-
-Generate records for every day with the date range given [ each day generate 1000 to 10000 records]
-
-2. Load each file into s3. [ each with folder as 20220101,20220102] [ use boto3 to push to s3]
-3.Create table in Redshift.
-4. Copy data to redshift  [append mode]
+1. Create hadoop architecture diagram.
+2. Create hive architecture diagram.
+3. What is difference between dynamic partition vs static partition?
+4. How to explain plan of hive query?
 
 
-
-1. Unload query sum(tran)amt by country cd to parquet file in s3.
+there ev_vehicle datasets in hive/data folder.
+1. Create a external table to store the data.  [Table name: ev_vehicle_info_src]
+2. Create another table with partition make.  [ Parquet table with snappy compression][Table name:ev_vehicle_info]
+3. Write a sql to show top 3 by number of vehicle registered. [ sql should be in file. the number to pas is dynamic. it can be 3 is can be 5]
+4. Find out the vehicle which are Not eligible due to low battery range='Not eligible due to low battery range'
+5. Write a sql to show top 3 by Write a sql to show top 3 by n
+6. write a sql to show how many distinct model for each maker.
+7.Write sql to count number of vehicle where Model Year < 2018 and Not eligible due to low battery range='Not eligible due to low battery range'
