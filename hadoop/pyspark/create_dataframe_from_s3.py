@@ -1,5 +1,6 @@
 # Import SparkSession
 from pyspark.sql import SparkSession
+import pyspark.sql.functions as psf
 
 # Create SparkSession
 spark = SparkSession.builder \
@@ -17,8 +18,15 @@ df.count()
 # df2.write()
 # df3.write()
 
+# spark.sql(" set hive.e=true")
 
-df.write.parquet("s3://aws-train-nov-de-data/data/src_customer/customer_details_parquet/")
+
+df=spark.read.parquet("s3://aws-train-nov-de-data/data/src_customer/customer_details_parquet/")
+df1=df.filter("account_id_type = 'Saving'")
+df2=df1.withColumn('min_balance',psf.lit(20))
+df3=df.filter("account_id_type != 'Saving'")
+df4=df3.withColumn('min_balance',psf.lit(10))
+df5=df4.unionAll(df3)
 
 
 # --spark-submit  create.py
