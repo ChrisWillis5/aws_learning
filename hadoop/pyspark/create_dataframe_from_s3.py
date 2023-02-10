@@ -32,7 +32,7 @@ df5=df4.unionAll(df2)
 
 # --spark-submit  create.py
 # df=spark.sql(""" select * from schema.table""")
-df5.coalesce(5).write.mode('overwrite').parquet("s3://aws-train-nov-de-data/data/src_customer/customer_details_parquet_write/")
+df2.coalesce(2).write.mode('overwrite').parquet("s3://aws-train-nov-de-data/data/src_customer/customer_details_parquet_write_shrey/load_date=2023-01-02 ")
 df5.repartition('account_id').write.mode('overwrite').parquet("s3://aws-train-nov-de-data/data/src_customer/customer_details_parquet_write/")
 
 spark.sql(""" inser overwrite table select a, b, case when () as d end from table 
@@ -44,5 +44,6 @@ df.count()
 spark.sql(""" select count(1) from schema.table """)
 
 # Service Principal: glue.amazonaws.com is not authorized to perform:
-# logs:PutLogEvents on resource: arn:aws:logs:us-east-1:341966982503:log-group:/aws-glue/crawlers:log-stream:src_customer-customer_details because no identity-based policy allows the logs:PutLogEvents action (Service: AWSLogs; Status Code: 400; Error Code: AccessDeniedException; Request ID: 0ae85245-d16f-4e93-9bfc-24bc5eff20a0; Proxy: null). For more information,
+# logs:PutLogEvents on resource: arn:aws:logs:us-east-1:341966982503:log-group:/aws-glue/crawlers:log-stream:src_customer-customer_details
+# because no identity-based policy allows the logs:PutLogEvents action (Service: AWSLogs; Status Code: 400; Error Code: AccessDeniedException; Request ID: 0ae85245-d16f-4e93-9bfc-24bc5eff20a0; Proxy: null). For more information,
 # see Setting up IAM Permissions in the Developer Guide (http://docs.aws.amazon.com/glue/latest/dg/getting-started-access.html).
