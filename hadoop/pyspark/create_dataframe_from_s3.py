@@ -47,3 +47,5 @@ spark.sql(""" select count(1) from schema.table """)
 # logs:PutLogEvents on resource: arn:aws:logs:us-east-1:341966982503:log-group:/aws-glue/crawlers:log-stream:src_customer-customer_details
 # because no identity-based policy allows the logs:PutLogEvents action (Service: AWSLogs; Status Code: 400; Error Code: AccessDeniedException; Request ID: 0ae85245-d16f-4e93-9bfc-24bc5eff20a0; Proxy: null). For more information,
 # see Setting up IAM Permissions in the Developer Guide (http://docs.aws.amazon.com/glue/latest/dg/getting-started-access.html).
+
+spark.sql(""" select * from src_customer.customer_details_parquet_snappy  """).show(10,False)
