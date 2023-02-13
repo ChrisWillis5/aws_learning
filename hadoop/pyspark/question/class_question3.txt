@@ -1,0 +1,13 @@
+Task 1:
+1. copy a parquet file to a s3 folder . [[ s3://zyd/abc/a.parquet    >> s3://zyd/abc/shreays/a.parquet ] using aws s3 cp
+2. create a crawler
+3. Run the crawler.
+
+
+Task 2:
+1. copy a parquet file to a s3 folder . [[ s3://zyd/abc/a.parquet    >>
+s3://zyd/abc/shreays_partiton/dataset_date=2022-01-01/.parquet ] using aws s3 cp
+2. create a crawler
+3. Run the crawler.
+
+

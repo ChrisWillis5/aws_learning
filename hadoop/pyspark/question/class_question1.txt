@@ -1,5 +1,5 @@
 Build Pyspark job to do this.
-1. Read the transaction csv file . (10 files 1 by 1)
+1. Read the transaction csv/parquet file . (10 files 1 by 1) [[ pyspark file abc.py   - inout parameter as date]
 2. Add load_time  (current_time)
 3. concat first_name and last name along with space in between. The new col is name.
 4. get the first two character of account id. if its CK the create a new field account_type as Checking
