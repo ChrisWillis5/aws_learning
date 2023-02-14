@@ -9,15 +9,19 @@ if its PV then Private and else saving.
  lets say you are running for 2023-01-01 then partition is same
 
 
-df=Read 1 week data
+
+Added on 02/14
+df=Read 1 week data  [ spark.sql(''' select * from table where datasets >= and dataset_dt <=]
 1. Get the total number of account_id by account_open_dt as count_accont_by_date. [here you will get 7 record]
 2. Get the total number of account_id by account_type as count_accont_by_type   [ here you will get three record]
-3. Create field --account_stats -- values[ 'First','Second','Third'] by ranking from step2. [ here you will get three record]
+3. Create field --account_stats -- values[ 'First','Second','Third'] by ranking  jigh first from step2. [ here you will get three record]
 
 
 Joins Task (Inner)
 Now . join df with step1 on account_open_dt get the count_accont_by_date
 Join step2 on account_type get count_accont_by_type
 Join step3 on account_type get account_stats
+ write data into s3 and create table using glue crawler.
 
-load data into dynamic partition table by dataset_date account_stats
+
+load data into dynamic partition table by dataset_date account_stats   [ How to write partition dataset into s3 bucket]
