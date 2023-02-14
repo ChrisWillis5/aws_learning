@@ -8,3 +8,16 @@ if its PV then Private and else saving.
 6. Load data into a new folder with customer_pyspark and each day add a partition of the day .
  lets say you are running for 2023-01-01 then partition is same
 
+
+df=Read 1 week data
+1. Get the total number of account_id by account_open_dt as count_accont_by_date. [here you will get 7 record]
+2. Get the total number of account_id by account_type as count_accont_by_type   [ here you will get three record]
+3. Create field --account_stats -- values[ 'First','Second','Third'] by ranking from step2. [ here you will get three record]
+
+
+Joins Task (Inner)
+Now . join df with step1 on account_open_dt get the count_accont_by_date
+Join step2 on account_type get count_accont_by_type
+Join step3 on account_type get account_stats
+
+load data into dynamic partition table by dataset_date account_stats

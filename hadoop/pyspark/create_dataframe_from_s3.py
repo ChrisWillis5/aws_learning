@@ -28,6 +28,13 @@ df3=df.filter("account_id_type != 'Saving'")
 df4=df3.withColumn('min_balance',psf.lit(10))
 df5=df4.unionAll(df2)
 
+df2.show()
+
+a.empid = b.empid[inner join]
+b -- empid,deptno
+a.empid=b.empid [left join]
+where b.dept is not null
+
 
 
 # --spark-submit  create.py
@@ -49,3 +56,15 @@ spark.sql(""" select count(1) from schema.table """)
 # see Setting up IAM Permissions in the Developer Guide (http://docs.aws.amazon.com/glue/latest/dg/getting-started-access.html).
 
 spark.sql(""" select * from src_customer.customer_details_parquet_snappy  """).show(10,False)
+
+df= spark.read.parq('abc.parquet')
+df.createOrReplaceTempView('curtis')
+
+df1= spark.read.parq('def.parquet')
+df1.createOrReplaceTempView('shreas')
+
+df3=spark.sql(''' select curtis.* from curtis inner join shreas on curtis.empid=shreas.empid    where ''')
+df3.write.parquet()
+
+df4=df1.join(df2,df1.empid==df2.empid,"inner")
+df4.wrire()

@@ -1,3 +1,7 @@
+
+
+Create a role.
+
 Task 1:
 1. copy a parquet file to a s3 folder . [[ s3://zyd/abc/a.parquet    >> s3://zyd/abc/shreays/a.parquet ] using aws s3 cp
 2. create a crawler
