@@ -9,7 +9,7 @@ def my_func():
    return 'hello from my_func'
 
 
-def my_func(**kwargs):
+def new_func(**kwargs):
    print(kwargs)
    return kwargs['param_1']
 
@@ -23,7 +23,7 @@ with DAG(
    task_c = DummyOperator(task_id="task_c")
    task_d = DummyOperator(task_id="task_d")
    python_task = PythonOperator(task_id='python_task', python_callable=my_func)
-   python_task_1 = PythonOperator(task_id='python_task_1', python_callable=my_func,
+   python_task_1 = PythonOperator(task_id='python_task_1', python_callable=new_func,
                                 op_kwargs={'param_1': 'one', 'param_2': 'two', 'param_3': 'three'})
 
 
