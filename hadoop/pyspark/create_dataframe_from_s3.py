@@ -68,3 +68,6 @@ df3.write.parquet()
 
 df4=df1.join(df2,df1.empid==df2.empid,"inner")
 df4.wrire()
+
+df4.show()
+df.write.

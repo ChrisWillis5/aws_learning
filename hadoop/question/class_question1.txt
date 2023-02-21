@@ -64,3 +64,6 @@ Build a sql which will read one day data from tran_fact and load into transactio
 4. Find out duplicate transaction in total.
 5. show the transaction which has debit but never credit before.
 
+
+Can we
+

@@ -1,5 +1,5 @@
 
-ssh -i sanjeeb_ec2.pem  hadoop@ec2-44-201-173-164.compute-1.amazonaws.com
+ssh -i sanjeeb_ec2.pem  hadoop@ec2-34-207-126-178.compute-1.amazonaws.com
 
 type : hive to open hive shell
 or
